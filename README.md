@@ -1,5 +1,5 @@
 # panic-linter
-Go linter that flags panic() call that don't have a comment explaining why panic
+`paniccheck` is a golang linter that flags panic() call that don't have a comment explaining why panic.
 
 
 ## Why?
