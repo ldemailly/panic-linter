@@ -6,6 +6,8 @@
 # panic-linter
 `paniccheck` is a golang linter that flags panic() call that don't have a comment explaining why panic.
 
+https://go.dev/wiki/CodeReviewComments#dont-panic
+
 
 ## Why?
 
