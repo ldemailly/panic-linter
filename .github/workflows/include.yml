@@ -1,4 +1,4 @@
-name: "Shared fortio workflows"
+name: "CI checks"
 on:
     push:
       branches: [ main ]
