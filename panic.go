@@ -2,6 +2,7 @@ package main
 
 import (
 	"go/ast"
+	"strings"
 
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/analysis/singlechecker"
@@ -25,6 +26,9 @@ func run(pass *analysis.Pass) (interface{}, error) {
 		commentLines := sets.New[int]()
 		for _, commentGroup := range f.Comments {
 			for _, comment := range commentGroup.List {
+				if strings.HasPrefix(comment.Text, "/* want") { // skipping analysistests special comments
+					continue
+				}
 				commentPos := pass.Fset.Position(comment.Pos())
 				commentLines.Add(commentPos.Line)
 			}
@@ -54,7 +58,7 @@ func CheckPanicCalls(pass *analysis.Pass, file *ast.File, node ast.Node, comment
 	startPos := pass.Fset.Position(node.Pos())
 	// Check if the line has a comment
 	if !commentLines.Has(startPos.Line) {
-		pass.Reportf(node.Pos(), "panic without comment")
+		pass.Reportf(node.Pos(), "panic call without same line comment justifying it")
 	}
 	return true
 }
