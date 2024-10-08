@@ -9,5 +9,4 @@ import (
 
 func TestAll(t *testing.T) {
 	_ = analysistest.Run(t, "./testdata", analyser.Analyser, "./...")
-
 }
