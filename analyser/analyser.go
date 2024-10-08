@@ -28,17 +28,17 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			}
 		}
 		ast.Inspect(f, func(node ast.Node) bool {
-			return CheckPanicCalls(pass, f, node, commentLines)
+			return CheckPanicCalls(pass, node, commentLines)
 		})
 	}
-	return nil, nil
+	return nil, nil //nolint:nilnil // we don't have a useful result to return.
 }
 
 type Result struct {
 	IssueLines []int // Lines with issues, empty if no issues.
 }
 
-func CheckPanicCalls(pass *analysis.Pass, file *ast.File, node ast.Node, commentLines sets.Set[int]) bool {
+func CheckPanicCalls(pass *analysis.Pass, node ast.Node, commentLines sets.Set[int]) bool {
 	// Check for a panic call
 	callExpr, ok := node.(*ast.CallExpr)
 	if !ok {
