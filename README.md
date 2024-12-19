@@ -2,6 +2,7 @@
 [![GoDoc](https://godoc.org/github.com/ldemailly/panic-linter?status.svg)](https://pkg.go.dev/github.com/ldemailly/panic-linter)
 [![codecov](https://codecov.io/gh/ldemailly/panic-linter/branch/main/graph/badge.svg)](https://codecov.io/gh/ldemailly/panic-linter)
 [![CI Checks](https://github.com/ldemailly/panic-linter/actions/workflows/include.yml/badge.svg)](https://github.com/ldemailly/panic-linter/actions/workflows/include.yml)
+[![go-recipes](https://raw.githubusercontent.com/nikolaydubina/go-recipes/main/badge.svg?raw=true)](https://github.com/nikolaydubina/go-recipes)
 
 # panic-linter
 `paniccheck` is a golang linter that flags panic() call that don't have a comment explaining why panic.
