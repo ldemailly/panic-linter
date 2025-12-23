@@ -14,7 +14,7 @@ var Analyser = &analysis.Analyzer{
 	Run:  run,
 }
 
-func run(pass *analysis.Pass) (interface{}, error) {
+func run(pass *analysis.Pass) (any, error) {
 	for _, f := range pass.Files {
 		// Create a map of lines that have comments
 		commentLines := sets.New[int]()
